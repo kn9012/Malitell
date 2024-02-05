@@ -1,9 +1,8 @@
 package com.ssafy.malitell.domain.board.gathering;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.ssafy.malitell.domain.scrap.Scrap;
 import com.ssafy.malitell.domain.selfhelpgroup.SelfHelpGroup;
-import com.ssafy.malitell.dto.request.gathering.GatheringUpdateRequestDto;
+import com.ssafy.malitell.dto.request.board.gathering.GatheringUpdateRequestDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
