@@ -33,6 +33,10 @@ export const Explanation = styled.div`
   }
 `
 
+export const Form = styled.form`
+
+`
+
 export const Number = styled.input`
   width: 50%;
   height: 10%;
