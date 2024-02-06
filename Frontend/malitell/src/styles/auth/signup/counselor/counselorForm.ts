@@ -92,7 +92,8 @@ export const Select = styled.select`
   }
 `;
 
-export const Option = styled.option``;
+export const Option = styled.option`
+`;
 
 export const Line = styled.div`
   width: 55%;
@@ -106,6 +107,7 @@ export const Line = styled.div`
 `;
 
 export const Submit = styled.input`
+  cursor: pointer;
   transition: all 0.2s;
   width: 55%;
   height: 8%;
