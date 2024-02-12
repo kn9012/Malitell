@@ -10,6 +10,8 @@ export default function Title({article}: {article: t.Article}) {
         프로필 사진
         닉네임
         {article?.title}
+        <button>수정</button>
+        <button>삭제</button>
       </TitleBox>
     </Wrapper>
   )
