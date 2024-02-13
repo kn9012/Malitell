@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios';
 
 const BASE_URL = 'http://localhost:8080'
 const OPENVIDU_URL = 'http://i10c208.p.ssafy.io:8443/openvidu/api'
-const Access_Token = "Bearer ***REMOVED***"
+
 export const api: AxiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {
