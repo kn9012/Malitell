@@ -96,7 +96,7 @@ export default function MyInfoClient() {
   useEffect(() => {
     fetchUserInfo().then((res) => {
       setUserData(res);
-      setProfileImage(res.profileImg);
+      setProfileImage(res.profileImg || null);
       setSelectedTags(res.statusTags);
     });
   }, []);
