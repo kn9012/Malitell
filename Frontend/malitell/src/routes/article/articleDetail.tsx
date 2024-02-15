@@ -1,5 +1,5 @@
 import Title from "../../components/article/articleDetail/title";
-import Content from "../../components/article/articleDetail/content";
+import Content from "../../components/article/articleDetail/communityContent";
 import CommentList from "../../components/article/articleDetail/commentList";
 import { Back, Box } from "../../styles/grid";
 import { GridDetail } from "../../styles/article/grid";
@@ -8,9 +8,15 @@ import { useEffect, useState } from "react";
 import { sHGroupDetail } from "../../store/article/gatherSlice";
 import { overcomeDetail } from "../../store/article/overcomingSlice";
 import { articleDetail } from "../../store/article/communitySlice";
-import { GatherArticle, CommunityArticle, OvercomeArticle } from "../../components/article/articleDetail/types";
+import {
+  GatherArticle,
+  CommunityArticle,
+  OvercomeArticle,
+} from "../../components/article/articleDetail/types";
 import CreateComment from "../../components/article/articleDetail/createComment";
-
+import GatherContent from "../../components/article/articleDetail/gatherContent";
+import CommunityContent from "../../components/article/articleDetail/communityContent";
+import OvercomeContent from "../../components/article/articleDetail/overcomeContent";
 
 export default function ArticleDetail() {
   const [gatherArticle, setGatherArticle] = useState<GatherArticle>();
@@ -44,11 +50,27 @@ export default function ArticleDetail() {
           {/* <Title article={{gatherArticle, communityArticle, overcomeArticle}}/> */}
         </Box>
         <Box $col="1/13" $row="3/4">
-          {/* <Content article={{gatherArticle, communityArticle, overcomeArticle}} /> */}
+          <>
+            {gatherArticle ? (
+              <GatherContent gatherArticle={gatherArticle} />
+            ) : communityArticle ? (
+              <CommunityContent communityArticle={communityArticle} />
+            ) : overcomeArticle ? ( 
+              <OvercomeContent overcomeArticle={overcomeArticle} />
+            ) : null}
+          </>
         </Box>
         <Box $col="1/13" $row="6/7">
           <CreateComment />
-          <CommentList />
+          <>
+            {gatherArticle ? (
+              <CommentList comments={gatherArticle.gatheringComments} />
+            ) : communityArticle ? (
+              <CommentList comments={communityArticle.communityComments} />
+            ) : overcomeArticle ? ( 
+              <CommentList comments={overcomeArticle.overComingComments} />
+            ) : null}
+          </>
         </Box>
       </GridDetail>
     </>

@@ -1,13 +1,12 @@
 import * as s from "../../../styles/article/articleDetail/comment";
+import { CommentType } from "./types";
 
-interface CommentListProps {
-  role: string
-}
 
-export default function Comment({role}:CommentListProps) {
+export default function Comment({comment}: {comment: CommentType}) {
   return (
     <>
-      <s.Wrapper className={role}>
+      <s.Wrapper>
+        {comment.content}
       </s.Wrapper>
     </>
   );
