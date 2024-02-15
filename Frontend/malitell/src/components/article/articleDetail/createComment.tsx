@@ -11,7 +11,7 @@ export default function CreateComment() {
   const {boardSeq} = useParams();
   const [username, setUsername] = useState();
   const [content, setContent] = useState("");
-  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,8 +38,8 @@ export default function CreateComment() {
   return (
     <s.Wrapper onSubmit={handleSubmit}>
       {username && <s.userInfoBox>{username}</s.userInfoBox>}
-      <s.Textarea onChange={handleContentChange} value={content}></s.Textarea>
-      <input type="submit" />
+      <s.Textarea onChange={handleContentChange} value={content} placeholder="댓글을 작성해 주세요."></s.Textarea>
+      <s.Submit type="submit">댓글 작성</s.Submit>
     </s.Wrapper>
   );
 }
