@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import { error } from "console";
 
 const BASE_URL = "http://localhost:8080";
 const OPENVIDU_URL = "http://i10c208.p.ssafy.io:8443/openvidu/api";
@@ -35,7 +36,7 @@ authApi.interceptors.request.use((config) => {
   if (token) {
     config.headers["Access_Token"] = token;
   }
-  console.log(config);
+  // console.log(config);
   return config;
 });
 
@@ -44,26 +45,21 @@ export const refreshApi: AxiosInstance = axios.create({
   headers: {
     "Content-type": "application/json",
   },
-});
-
-refreshApi.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem("Refresh_Token");
-  if (token) {
-    config.headers["Refresh_Token"] = token;
-  }
-  console.log(config);
-  return config;
+  
 });
 
 const refreshAccessToken = () => {
+  console.log(sessionStorage.getItem("Refresh_Token"))
   const res = refreshApi
-    .get("/user/reissue")
+    .post("/user/reissue", null, { headers: {
+      "Refresh_Token": sessionStorage.getItem("Refresh_Token"),
+    }})
     .then((res) => {
-      sessionStorage.setItem("Access_Token", res.headers.access_token)
-      return res.headers.access_token
-    }
-  );
-  return res
+      sessionStorage.setItem("Access_Token", res.headers.access_token);
+      return res.headers.access_token;
+    })
+    .catch((error) => console.log("토큰 리프레시 중 에러" + error));
+  return res;
 };
 
 authApi.interceptors.response.use(

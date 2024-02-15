@@ -18,6 +18,7 @@ import GatherContent from "../../components/article/articleDetail/gatherContent"
 import CommunityContent from "../../components/article/articleDetail/communityContent";
 import OvercomeContent from "../../components/article/articleDetail/overcomeContent";
 import Loading from "../etc/loading";
+import TitleGather from "../../components/article/articleDetail/titleGather";
 
 export default function ArticleDetail() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,10 +59,12 @@ export default function ArticleDetail() {
         <Box $col="1/13" $row="1/2"/>
         <Box $col="1/13" $row="2/3">
           {gatherArticle && (
-            <Title
+            <TitleGather
               name={gatherArticle.name}
               title={gatherArticle.title}
               userSeq={gatherArticle.userSeq}
+              participants={gatherArticle.participants}
+              selfHelpGroup={gatherArticle.selfHelpGroup}
             />
           )}
           {communityArticle && (
