@@ -8,7 +8,7 @@ export default function CommentList({ comments }: { comments: CommentType[] }) {
     <Wrapper>
       {comments &&
         comments.length > 0 &&
-        comments.map((comment: CommentType, index: number) => (
+        comments.reverse().map((comment: CommentType, index: number) => (
           <Comment key={index} comment={comment} />
         ))}
     </Wrapper>
