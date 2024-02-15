@@ -14,8 +14,12 @@ export default function CreateComment() {
   const { boardSeq } = useParams();
   const [username, setUsername] = useState();
   const [content, setContent] = useState("");
+<<<<<<< d0b557656521987e9758f3fbd46544c693043845
+  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+=======
   const mySeq = sessionStorage.getItem("mySeq");
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+>>>>>>> 60a7dc51b09aae10e07d4482e1549c6f4217c2f6
     setContent(e.target.value);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,6 +62,11 @@ export default function CreateComment() {
   }, []);
   return (
     <s.Wrapper onSubmit={handleSubmit}>
+<<<<<<< d0b557656521987e9758f3fbd46544c693043845
+      {username && <s.userInfoBox>{username}</s.userInfoBox>}
+      <s.Textarea onChange={handleContentChange} value={content} placeholder="댓글을 작성해 주세요."></s.Textarea>
+      <s.Submit type="submit">댓글 작성</s.Submit>
+=======
       {username ? (
         <s.userInfoBox>{username}</s.userInfoBox>
       ) : (
@@ -65,6 +74,7 @@ export default function CreateComment() {
       )}
       <s.Textarea onChange={handleContentChange} value={content}></s.Textarea>
       <input type="submit" />
+>>>>>>> 60a7dc51b09aae10e07d4482e1549c6f4217c2f6
     </s.Wrapper>
   );
 }
