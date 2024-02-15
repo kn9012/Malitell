@@ -36,15 +36,15 @@ export default function TitleGather({
   const showCancelButton = isParticipating;
   const showFullButton = !isParticipating && isFull;
   const handleJoin = () => {
+    console.log(selfHelpGroup.selfHelpGroupSeq);
     joinSHGroup(selfHelpGroup.selfHelpGroupSeq).then((res) => {
-      // window.location.reload();
+      window.location.reload();
     });
   };
 
   const handleLeave = () => {
-    leaveSHGroup(selfHelpGroup.selfHelpGroupSeq)
-    .then((res) => {
-      // window.location.reload();
+    leaveSHGroup(selfHelpGroup.selfHelpGroupSeq).then((res) => {
+      window.location.reload();
     });
   };
 
@@ -84,7 +84,12 @@ export default function TitleGather({
                     참가취소
                   </s.Button>
                 )}
-                {showFullButton && <s.Button disabled>인원 마감</s.Button>}
+                {showFullButton && (
+                  <>
+                    <span>참가인원: {} </span>
+                    <s.Button disabled>인원 마감</s.Button>
+                  </>
+                )}
               </s.ButtonBox>
             )}
           </>
