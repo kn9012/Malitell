@@ -12,19 +12,15 @@ export default function CreateComment() {
   const boardType = useSelector((state: RootState) => state.board.boardType);
   const dispatch = useDispatch();
   const { boardSeq } = useParams();
-  const [username, setUsername] = useState();
+  const [username, setUsername] = useState(null);
   const [content, setContent] = useState("");
-<<<<<<< d0b557656521987e9758f3fbd46544c693043845
-  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-=======
   const mySeq = sessionStorage.getItem("mySeq");
-  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
->>>>>>> 60a7dc51b09aae10e07d4482e1549c6f4217c2f6
+  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!mySeq) { 
+    if (!mySeq) {
       dispatch(flipLoginModal());
     } else if (boardType === "community") {
       if (username) {
@@ -61,20 +57,18 @@ export default function CreateComment() {
     }
   }, []);
   return (
-    <s.Wrapper onSubmit={handleSubmit}>
-<<<<<<< d0b557656521987e9758f3fbd46544c693043845
-      {username && <s.userInfoBox>{username}</s.userInfoBox>}
-      <s.Textarea onChange={handleContentChange} value={content} placeholder="댓글을 작성해 주세요."></s.Textarea>
-      <s.Submit type="submit">댓글 작성</s.Submit>
-=======
+    <>
       {username ? (
-        <s.userInfoBox>{username}</s.userInfoBox>
-      ) : (
-        <s.userInfoBox>로그인이 필요한 기능입니다.</s.userInfoBox>
-      )}
-      <s.Textarea onChange={handleContentChange} value={content}></s.Textarea>
-      <input type="submit" />
->>>>>>> 60a7dc51b09aae10e07d4482e1549c6f4217c2f6
-    </s.Wrapper>
+        <s.Wrapper onSubmit={handleSubmit}>
+          <s.userInfoBox>{username}</s.userInfoBox>
+          <s.Textarea
+            onChange={handleContentChange}
+            value={content}
+            placeholder="댓글을 작성해 주세요."
+          ></s.Textarea>
+          <s.Submit type="submit">댓글 작성</s.Submit>
+        </s.Wrapper>
+      ) : "댓글을 작성하려면 로그인 해주세요."}
+    </>
   );
 }
