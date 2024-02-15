@@ -28,7 +28,7 @@ export default function CreateComment() {
           username,
           content,
           boardSeq: Number(boardSeq),
-        });
+        }).then(() => window.location.reload());
       }
     } else if (boardType === "gather") {
       if (username) {
@@ -36,7 +36,7 @@ export default function CreateComment() {
           username,
           content,
           boardSeq: Number(boardSeq),
-        });
+        }).then(() => window.location.reload());
       }
     } else if (boardType === "overcome") {
       if (username) {
@@ -44,7 +44,7 @@ export default function CreateComment() {
           username,
           content,
           boardSeq: Number(boardSeq),
-        });
+        }).then(() => window.location.reload());
       }
     }
   };
@@ -68,7 +68,9 @@ export default function CreateComment() {
           ></s.Textarea>
           <s.Submit type="submit">댓글 작성</s.Submit>
         </s.Wrapper>
-      ) : "댓글을 작성하려면 로그인 해주세요."}
+      ) : (
+        "댓글을 작성하려면 로그인 해주세요."
+      )}
     </>
   );
 }
