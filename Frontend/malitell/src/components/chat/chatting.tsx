@@ -43,6 +43,23 @@ export default function Chatting() {
     }
   };
 
+  const prevMessages = async () => {
+    if (roomId.current) {
+      const response = await axios
+        .get(
+          "http://localhost:8080/api/room/" + roomId.current + "/message",
+          {
+            headers: {
+              Access_Token: token,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        });
+    }
+  };
+
   // 메시지 전송
   const sendMessage = () => {
     if (roomId.current) {
@@ -74,6 +91,7 @@ export default function Chatting() {
   useEffect(() => {
     setSender(sessionStorage.getItem("wschat.sender"));
     findRoom();
+    prevMessages();
   }, []);
 
   return (
