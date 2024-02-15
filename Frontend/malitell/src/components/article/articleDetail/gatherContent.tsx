@@ -17,7 +17,7 @@ export default function GatherContent({ gatherArticle }: ArticleProps) {
       <ContentBox>
         <div>
           <h1>자조모임 정보</h1>
-          <div>{gatherArticle.selfHelpGroup.selfHelpType}</div>
+          <div>주제: {gatherArticle.selfHelpGroup.selfHelpType}</div>
           <ul>
             {gatherArticle.selfHelpGroup.times.map((time, index) => {
               const parsedDate = parseISO(time);
