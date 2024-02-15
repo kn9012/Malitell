@@ -31,7 +31,7 @@ export interface GatherArticle extends CommonFields {
 
 export interface CommunityArticle extends CommonFields {
   communityComments: CommentType[];
-  worryTag: string;
+  worryTag: 'COURSE' | 'EMOTION' | 'RELATIONSHIP' | 'ECONOMY' | 'HEALTH';
 }
 
 export interface OvercomeArticle extends CommonFields {
