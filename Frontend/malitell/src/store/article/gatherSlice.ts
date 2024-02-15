@@ -1,5 +1,5 @@
 import { resolveSrv } from "dns/promises";
-import { api, authApi } from "../axiosInstance";
+import { api, authApi, loginApi } from "../axiosInstance";
 
 export interface SelfHelpGroupForm {
   selfHelpGroupTitle: string;
@@ -78,7 +78,7 @@ export const deleteSHGroup = (gatheringSeq: number) => {
 // 자조모임 참가
 export const joinSHGroup = (gatheringSeq: number) => {
   console.log(gatheringSeq)
-  const res = authApi.post("/selfHelpGroup/participate", { gatheringSeq }).then((response) => {
+  const res = loginApi.post("/api/selfHelpGroup/participate", { gatheringSeq }).then((response) => {
     return response.data;
   }).catch((error) => console.log(error))
   return res
