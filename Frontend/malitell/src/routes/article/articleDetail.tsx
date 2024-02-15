@@ -17,11 +17,17 @@ import CreateComment from "../../components/article/articleDetail/createComment"
 import GatherContent from "../../components/article/articleDetail/gatherContent";
 import CommunityContent from "../../components/article/articleDetail/communityContent";
 import OvercomeContent from "../../components/article/articleDetail/overcomeContent";
+import Loading from "../etc/loading";
 
 export default function ArticleDetail() {
-  const [gatherArticle, setGatherArticle] = useState<GatherArticle | any>();
-  const [communityArticle, setCommunityArticle] = useState<CommunityArticle | any>();
-  const [overcomeArticle, setOvercomeArticle] = useState<OvercomeArticle | any>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [gatherArticle, setGatherArticle] = useState<GatherArticle | any>(null);
+  const [communityArticle, setCommunityArticle] = useState<
+    CommunityArticle | any
+  >(null);
+  const [overcomeArticle, setOvercomeArticle] = useState<
+    OvercomeArticle | any
+  >(null);
   const { boardType, boardSeq } = useParams();
 
   useEffect(() => {
@@ -29,28 +35,49 @@ export default function ArticleDetail() {
       if (boardType === "gather") {
         const data = await sHGroupDetail(Number(boardSeq));
         setGatherArticle(data);
+        setIsLoading(false);
+        console.log(data);
       } else if (boardType === "overcome") {
         const data = await overcomeDetail(Number(boardSeq));
         setOvercomeArticle(data);
+        setIsLoading(false);
+        console.log(data);
       } else {
         const data = await articleDetail(Number(boardSeq));
         setCommunityArticle(data);
+        setIsLoading(false);
+        console.log(data);
       }
     };
     fetchData();
   }, []);
-  return (
+  return isLoading ? <><Loading /></> : (
     <>
       <Back />
       <GridDetail>
-        <Box $col="4/13" $row="1/2" $position="sticky" $top="80px" />
-        <Box $col="1/13" $row="2/3" $position="sticky" $top="100px">
-          {/* <Title article={
-            gatherArticle && gatherArticle? gatherArticle : (communityArticle && communityArticle ? communityArticle : overcomeArticle)
-          } /> */}
-          {/* 보내야할 프롭스 게시판타입, 게시글태그, 작성자, 작성자 이미지, 제목 */}
-          {/* notagTitle */}
-          {/* <Title article={{gatherArticle, communityArticle, overcomeArticle}}/> */}
+        <Box $col="1/13" $row="1/2"/>
+        <Box $col="1/13" $row="2/3">
+          {gatherArticle && (
+            <Title
+              name={gatherArticle.name}
+              title={gatherArticle.title}
+              userSeq={gatherArticle.userSeq}
+            />
+          )}
+          {communityArticle && (
+            <Title
+              name={communityArticle.name}
+              title={communityArticle.title}
+              userSeq={communityArticle.userSeq}
+            />
+          )}
+          {overcomeArticle && (
+            <Title
+              name={overcomeArticle.name}
+              title={overcomeArticle.title}
+              userSeq={overcomeArticle.userSeq}
+            />
+          )}
         </Box>
         <Box $col="1/13" $row="3/4">
           <>
@@ -58,7 +85,7 @@ export default function ArticleDetail() {
               <GatherContent gatherArticle={gatherArticle} />
             ) : communityArticle ? (
               <CommunityContent communityArticle={communityArticle} />
-            ) : overcomeArticle ? ( 
+            ) : overcomeArticle ? (
               <OvercomeContent overcomeArticle={overcomeArticle} />
             ) : null}
           </>
@@ -70,7 +97,7 @@ export default function ArticleDetail() {
               <CommentList comments={gatherArticle.gatheringComments} />
             ) : communityArticle ? (
               <CommentList comments={communityArticle.communityComments} />
-            ) : overcomeArticle ? ( 
+            ) : overcomeArticle ? (
               <CommentList comments={overcomeArticle.overComingComments} />
             ) : null}
           </>
