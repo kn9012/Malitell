@@ -2,7 +2,6 @@ import axios, { AxiosInstance } from "axios";
 
 const BASE_URL = "http://localhost:8080";
 const OPENVIDU_URL = "http://i10c208.p.ssafy.io:8443/openvidu/api";
-
 export const api: AxiosInstance = axios.create({
   baseURL: BASE_URL + "/api",
   headers: {
@@ -32,6 +31,22 @@ export const authApi: AxiosInstance = axios.create({
 });
 
 authApi.interceptors.request.use((config) => {
+  const token = sessionStorage.getItem("Access_Token");
+  if (token) {
+    config.headers["Access_Token"] = token;
+  }
+  console.log(config);
+  return config;
+});
+
+export const refreshApi: AxiosInstance = axios.create({
+  baseURL: BASE_URL + "/api",
+  headers: {
+    "Content-type": "application/json",
+  },
+});
+
+refreshApi.interceptors.request.use((config) => {
   const token = sessionStorage.getItem("Refresh_Token");
   if (token) {
     config.headers["Refresh_Token"] = token;
@@ -41,7 +56,7 @@ authApi.interceptors.request.use((config) => {
 });
 
 const refreshAccessToken = () => {
-  const res = authApi
+  const res = refreshApi
     .get("/user/reissue")
     .then((res) => {
       sessionStorage.setItem("Access_Token", res.headers.access_token)
