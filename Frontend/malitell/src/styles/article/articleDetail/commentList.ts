@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 width: 100%;
-min-height: 50px;
+min-height: 0;
 margin: 20px 0;
 background-color: white;
 border-radius: 10px;
