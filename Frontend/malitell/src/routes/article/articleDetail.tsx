@@ -19,9 +19,9 @@ import CommunityContent from "../../components/article/articleDetail/communityCo
 import OvercomeContent from "../../components/article/articleDetail/overcomeContent";
 
 export default function ArticleDetail() {
-  const [gatherArticle, setGatherArticle] = useState<GatherArticle>();
-  const [communityArticle, setCommunityArticle] = useState<CommunityArticle>();
-  const [overcomeArticle, setOvercomeArticle] = useState<OvercomeArticle>();
+  const [gatherArticle, setGatherArticle] = useState<GatherArticle | any>();
+  const [communityArticle, setCommunityArticle] = useState<CommunityArticle | any>();
+  const [overcomeArticle, setOvercomeArticle] = useState<OvercomeArticle | any>();
   const { boardType, boardSeq } = useParams();
 
   useEffect(() => {
@@ -45,6 +45,9 @@ export default function ArticleDetail() {
       <GridDetail>
         <Box $col="4/13" $row="1/2" $position="sticky" $top="80px" />
         <Box $col="1/13" $row="2/3" $position="sticky" $top="100px">
+          {/* <Title article={
+            gatherArticle && gatherArticle? gatherArticle : (communityArticle && communityArticle ? communityArticle : overcomeArticle)
+          } /> */}
           {/* 보내야할 프롭스 게시판타입, 게시글태그, 작성자, 작성자 이미지, 제목 */}
           {/* notagTitle */}
           {/* <Title article={{gatherArticle, communityArticle, overcomeArticle}}/> */}
