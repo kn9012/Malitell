@@ -105,6 +105,7 @@ export default function MyInfoClient() {
     <s.Wrapper onSubmit={handleEditProfile}>
       {userData && (
         <>
+          <s.Subtitle>프로필 사진</s.Subtitle>
           <s.Box
             type="file"
             name="profileImg"
@@ -114,14 +115,11 @@ export default function MyInfoClient() {
           <button type="button" onClick={clearFileInput}>
             파일 선택 취소
           </button>
-          <s.Box type="text" name="userId" value={userData.userId} disabled />
-          <s.Box type="text" name="name" value={userData.name} disabled />
-          <s.Box
-            type="text"
-            name="nickname"
-            value={userData.nickname}
-            disabled
-          />
+          <s.DisableContents>
+            <s.Info>userData.userId</s.Info>
+            <s.Info>userData.name</s.Info>
+            <s.Info>userData.nickname</s.Info>
+          </s.DisableContents>
           <s.Box
             type="text"
             name="email"
