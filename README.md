@@ -459,7 +459,7 @@
 <details>
 <summary>Frontend</summary>
 
-    ```jsx
+
     src
     ├─ App.tsx
     ├─ assets
@@ -761,7 +761,7 @@
        │  ├─ nav.ts
        │  └─ nav.tsx
        └─ index.css
-    ```
+    
 </details>
 
 ## 9. ERD
