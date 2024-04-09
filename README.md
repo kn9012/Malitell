@@ -14,13 +14,13 @@
 
 🖱 김선욱 (팀장) : Metaverse / 발표
 
-🌍 김유나 (팀원) : Backend
+🌍 김유나 (팀원) : Backend 리더
 
 😎 유세진 (팀원) : Backend
 
 🍷 윤주찬 (팀원) : Frontend
 
-📺 장동재 (팀원) : Frontend / 서버 배포
+📺 장동재 (팀원) : Frontend 리더 / CI/CD
 
 💪 한재현 (팀원) : Backend
 
