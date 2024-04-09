@@ -66,7 +66,7 @@
   </tr>
   <tr>    
     <td align="center">
-        <div>Metaverse / 발표</div>
+        <div>Metaverse, 발표</div>
     </td>
     <td align="center">
         <div>Backend 리더</div>
@@ -78,7 +78,7 @@
         <div>Frontend</div>
     </td>
     <td align="center">
-        <div>Frontend 리더 / CI/CD</div>
+        <div>Frontend 리더, CI/CD</div>
     </td>
     <td align="center">
         <div>Backend</div>
