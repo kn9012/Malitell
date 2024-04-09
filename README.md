@@ -1,4 +1,3 @@
-# C208 프로젝트
 # 📺 마리텔 (Mind Listen & Tell)
 
 ### 심리 상담 및 메타버스 자조모임 제공 비대면 마음 치료소
@@ -12,27 +11,90 @@
 
 ## 2. 팀원
 
-🖱 김선욱 (팀장) : Metaverse / 발표
-
-🌍 김유나 (팀원) : Backend 리더
-
-😎 유세진 (팀원) : Backend
-
-🍷 윤주찬 (팀원) : Frontend
-
-📺 장동재 (팀원) : Frontend 리더 / CI/CD
-
-💪 한재현 (팀원) : Backend
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/Woogie-Gim" width="150px;"  alt="김선욱"/>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/kn9012" width="150px;" alt="김유나"/>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/tpwls101" width="150px;"  alt="유세진"/>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/Yunjuchan" width="150px;"  alt="윤주찬"/>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/djjang0925" width="150px;"  alt="장동재"/>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/tneserp" width="150px;"  alt="한재현"/>
+    </td>
+  </tr>
+  <tr>    
+    <td align="center">
+      <a href="https://github.com/Woogie-Gim">
+        <div>김선욱</div>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/kn9012">
+        <div>김유나</div>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/tpwls101">
+        <div>유세진</div>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Yunjuchan">
+        <div>윤주찬</div>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/djjang0925">
+        <div>장동재</div>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/tneserp">
+        <div>한재현</div>
+      </a>
+    </td>
+  </tr>
+  <tr>    
+    <td align="center">
+        <div>Metaverse / 발표</div>
+    </td>
+    <td align="center">
+        <div>Backend 리더</div>
+    </td>
+    <td align="center">
+        <div>Backend</div>
+    </td>
+    <td align="center">
+        <div>Frontend</div>
+    </td>
+    <td align="center">
+        <div>Frontend 리더 / CI/CD</div>
+    </td>
+    <td align="center">
+        <div>Backend</div>
+    </td>
+  </tr>
+</table>
 
 ## 3. 소개
 
-마음의 문제를 겪는 사람들이 늘어나고 있는 우리나라. 하지만 사회적 인식과 같은 이유로 사람들은 정신과 혹은 심리 상담소 방문을 꺼려하는 추세입니다. 게다가 항우울제 소비량도 다른 나라에 비해 현저히 떨어집니다. 상담소를 직접 방문하지 않아도 된다면, 나와 비슷한 사람들과 이야기를 나누고 싶다면, 당신도 지금 마음을 털어놓고 싶다면, 여러분의 마음 치료사 **마리텔**을 이용해보세요!
+마음의 문제를 겪는 사람들이 늘어나고 있는 우리나라지만 사회적 인식과 같은 이유로 사람들은 정신과 혹은 심리 상담소 방문을 꺼려하는 추세입니다. 만약 상담소를 직접 방문하지 않아도 된다면 어떨까요? 나와 비슷한 사람들과 이야기를 나누고 싶다면, 당신도 지금 마음을 털어놓고 싶다면, 여러분의 마음 치료사 **마리텔**을 이용해보세요!
 
 ## 4. 주요 기능
 
 ### 상담자 목록
 
-- 상담자 프로필 사진, 이름, 경력 등 확인
+- 상담자 프로필 사진, 이름, 경력 등 상담자의 정보 확인
 
 ### 전문가 1:1 채팅 상담
 
@@ -165,7 +227,6 @@
 <details>
 <summary>Backend</summary>
 
-    
     \---src
         \---main
             +---java
