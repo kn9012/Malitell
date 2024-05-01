@@ -66,7 +66,7 @@
   </tr>
   <tr>    
     <td align="center">
-        <div>Metaverse, 발표</div>
+        <div>Metaverse, 팀장</div>
     </td>
     <td align="center">
         <div>Backend 리더</div>
