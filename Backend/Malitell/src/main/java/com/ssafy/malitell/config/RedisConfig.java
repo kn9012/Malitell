@@ -3,6 +3,7 @@ package com.ssafy.malitell.config;
 import com.ssafy.malitell.dto.request.chat.ChatMessageDto;
 import com.ssafy.malitell.service.chat.RedisSubscriber;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,13 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 @EnableCaching
 public class RedisConfig {
+    @Value("${spring.data.redis.host}")
+    private String redisHost;
+    @Value("${spring.data.redis.port}")
+    private int redisPort;
+    @Value("${spring.data.redis.password}")
+    private String redisPassword;
+
     @Bean
     public ChannelTopic channelTopic() {
         return new ChannelTopic("chatroom");
@@ -28,9 +36,9 @@ public class RedisConfig {
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName("i10c208.p.ssafy.io");
-        redisStandaloneConfiguration.setPort(6379);
-        redisStandaloneConfiguration.setPassword("***REMOVED***");
+        redisStandaloneConfiguration.setHostName(redisHost);
+        redisStandaloneConfiguration.setPort(redisPort);
+        redisStandaloneConfiguration.setPassword(redisPassword);
         LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration);
         return lettuceConnectionFactory;
     }

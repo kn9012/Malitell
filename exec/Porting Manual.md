@@ -82,8 +82,8 @@ spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 
 # Naver OAuth
-spring.security.oauth2.client.registration.naver.client-id=***REMOVED***
-spring.security.oauth2.client.registration.naver.client-secret=***REMOVED***
+spring.security.oauth2.client.registration.naver.client-id=<네이버 클라이언트 ID>
+spring.security.oauth2.client.registration.naver.client-secret=<네이버 클라이언트 시크릿>
 spring.security.oauth2.client.registration.naver.redirect-uri={baseUrl}/oauth2/callback/{registrationId}
 spring.security.oauth2.client.registration.naver.authorization-grant-type=authorization_code
 spring.security.oauth2.client.registration.naver.scope=email, gender, age, name, birthday, birthyear, mobile, nickname
@@ -95,8 +95,8 @@ spring.security.oauth2.client.provider.naver.user-info-uri=https://openapi.naver
 spring.security.oauth2.client.provider.naver.user-name-attribute=response
 
 # Kakao OAuth2
-spring.security.oauth2.client.registration.kakao.client-id=***REMOVED***
-spring.security.oauth2.client.registration.kakao.client-secret=***REMOVED***
+spring.security.oauth2.client.registration.kakao.client-id=<카카오 클라이언트 ID>
+spring.security.oauth2.client.registration.kakao.client-secret=<카카오 클라이언트 시크릿>
 spring.security.oauth2.client.registration.kakao.redirect-uri={baseUrl}/oauth2/callback/{registrationId}
 spring.security.oauth2.client.registration.kakao.authorization-grant-type=authorization_code
 spring.security.oauth2.client.registration.kakao.client-authentication-method=client_secret_post

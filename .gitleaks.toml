@@ -1,0 +1,9 @@
+# gitleaks 설정: 공개 SDK 상수(비밀 아님)만 허용 목록에 둔다
+[extend]
+useDefault = true
+
+[allowlist]
+paths = [
+  '''Build/MaLiTell/MonoBleedingEdge/etc/mono/.*/machine\.config''',   # Mono 기본 PublicKeyToken
+  '''Metaverse/Assets/Photon/PhotonRealtime/Code/Unity/Editor/AccountService\.cs''',  # Photon SDK 공개 기본 토큰
+]
