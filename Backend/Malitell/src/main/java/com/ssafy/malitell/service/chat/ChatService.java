@@ -130,7 +130,8 @@ public class ChatService {
         List<ChatMessageDto> messageList = new ArrayList<>();
 
 
-        if (redisMessageList != null) {
+        // range() 는 키가 없어도 null 이 아니라 빈 리스트를 돌려주므로, 비어 있는지로 캐시 유무를 판단해야 DB 조회가 실행된다
+        if (redisMessageList != null && !redisMessageList.isEmpty()) {
             messageList.addAll(redisMessageList);
         }
 
@@ -142,7 +143,7 @@ public class ChatService {
             for (ChatMessage message : dbMessageList) {
                 ChatMessageDto messageDto = new ChatMessageDto(message);
                 messageList.add(messageDto);
-                redisTemplateMessage.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatMessage.class));      // 직렬화
+                redisTemplateMessage.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatMessageDto.class));   // 저장하는 값(DTO)과 같은 타입으로 직렬화
                 redisTemplateMessage.opsForList().rightPush(chatRoomSeq, messageDto);                                // redis 저장
             }
         }
